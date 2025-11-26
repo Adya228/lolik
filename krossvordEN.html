@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+                    input.maxLength = 1;
+                    input.dataset.r = r;
+                    input.dataset.c = c;
+                    input.addEventListener('input', ev => {
+                        ev.target.value = ev.target.value.toUpperCase().replace(/[^A-Z]/g, '');
+                    });
+                    cell.appendChild(input);
+                    inputs[r][c] = input;
+
+                    if (/\d/.test(val)) {
+                        const num = document.createElement('span');
+                        num.className = 'num';
+                        num.textContent = val;
+                        cell.appendChild(num);
+                    }
+                }
+                grid.appendChild(cell);
+            }
+        }
+
+        function check() {
+            let correct = 0, total = Object.keys(words).length;
+
+            for (const [key, data] of Object.entries(words)) {
+                const { word, dir, pos } = data;
+                const [r0, c0] = pos;
+                let isCorrect = true;
+
+                for (let i = 0; i < word.length; i++) {
+                    const r = dir === 'down' ? r0 + i : r0;
+                    const c = dir === 'across' ? c0 + i : c0;
+                    const inp = inputs[r]?.[c];
+                    const letter = inp?.value.trim().toUpperCase() || '';
+                    if (letter !== word[i]) {
+                        isCorrect = false;
+                        if (inp) inp.style.backgroundColor = '#ffe0e0';
+                    } else {
+                        if (inp) inp.style.backgroundColor = '#e6ffe6';
+                    }
+                }
+
+                if (isCorrect) correct++;
+            }
+
+            const res = document.getElementById('result');
+            if (correct === total) {
+                res.innerHTML = '🎉 <b>Perfect!</b> Merry Christmas!';
+                res.style.color = '#a5d6a7';
+            } else {
+                res.innerHTML = `✅ ${correct}/${total} words correct`;
+                res.style.color = '#ffcc80';
+            }
+        }
+    </script>
+</body>
+</html>

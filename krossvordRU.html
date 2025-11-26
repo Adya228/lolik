@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+                            if (next) next.focus();
+                        } else if (e.key === 'ArrowUp' && r > 0) {
+                            const prev = document.querySelector(`input[data-row="${r-1}"][data-col="${c}"]`);
+                            if (prev) prev.focus();
+                        }
+                    });
+                    cell.appendChild(input);
+                    inputs[r][c] = input;
+
+                    // Номер подсказки
+                    if (/\d+/.test(val)) {
+                        const numSpan = document.createElement('span');
+                        numSpan.className = 'number';
+                        numSpan.textContent = val;
+                        cell.appendChild(numSpan);
+                    }
+                }
+                grid.appendChild(cell);
+            }
+        }
+
+        function checkAnswers() {
+            let allCorrect = true;
+            let total = 0, correct = 0;
+
+            // Проверяем каждое слово
+            for (const [num, data] of Object.entries(answers)) {
+                const { word, dir, pos } = data;
+                const [r0, c0] = pos;
+                let matches = true;
+
+                for (let i = 0; i < word.length; i++) {
+                    const r = dir === 'ver' ? r0 + i : r0;
+                    const c = dir === 'hor' ? c0 + i : c0;
+                    const input = inputs[r][c];
+                    const letter = input?.value.trim().toUpperCase() || '';
+                    if (letter !== word[i]) {
+                        matches = false;
+                        input.style.backgroundColor = '#ffebee';
+                    } else {
+                        input.style.backgroundColor = '#e8f5e9';
+                    }
+                }
+
+                if (matches) correct++;
+                total++;
+                if (!matches) allCorrect = false;
+            }
+
+            const msgEl = document.getElementById('message');
+            if (allCorrect) {
+                msgEl.textContent = '🎉 Поздравляем! Кроссворд решён!';
+                msgEl.style.color = '#a5d6a7';
+            } else {
+                msgEl.textContent = `✅ ${correct} из ${total} слов верно. Исправьте ошибки.`;
+                msgEl.style.color = '#ffcc80';
+            }
+        }
+    </script>
+</body>
+</html>
