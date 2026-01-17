@@ -1,105 +1,200 @@
 <!DOCTYPE html>
-<html>
-<head>
- <title>Мой блог</title>
-    </head>
-       <body>
-           <h2> 03.12 , 2025</h2>
-           <blockquote class=“q”>Путешествие в тысячу миль начинается с одного шага (Лао Цзы) </blockquote>
-        <img src=“Icons/free-icon-snowman-2445060.png” alt=“Новый год”>
-          <p>Поздравление с Наступающим 2026 годом читайте <a href="pozdravlenie.odt">здесь</a>.</p>
-    
-    <video controls width="400">
-        <source src="newTree.mp4" type="video/mp4">
-        Ваш браузер не поддерживает видео.
-    </video>
-
-    <h2>26 ноября, 2025</h2>
-    <p>
-        Я сделала Новогодние кроссворды для сайта <a href="https://github.com/nastyz4/popka " title="Блог моего друга">Сайт моего друга</a>.
-    </p>
-
-    <h2>1 сентября, 2025</h2>
-    <blockquote>Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
-    <p>
-        Оставляю в прошлом скучную неинтересную локальную файловую систему ради Всемирной паутины.
-    </p>
-    
-    <p>
-        <a href="https://www.flaticon.com/ru/free-icons/-" title="Новый год иконки от Milya Shaykh - Flaticon">Иконки Нового года</a>
-    </p>
-    
-    <p>
-        Видео: <a href="https://www.pexels.com/video/christmas-tree-decorated-with-golden-ornaments-and-lights-8541692/" target="_blank">Новогодняя ёлка с золотыми украшениями</a></p>
-
-    <h2>15 декабря, 2025</h2>
-    <p>Здесь вы можете ознакомиться с документом:</p>
-    <a href="pudelinka.pdf" target="_blank">Открыть PDF</a>
-          </p>
-     
-       </body>
-
-         <!-- Кнопка "Напишите мне" -->
-  <a href="mailto:adelina.anisimova.09@mail.ru" class="email-btn">Напишите мне</a>
-           <h2> 12 01, 2026</h2>
-
-<h2>  **доменное имя** — `adya228.github.io`.
-
-Разберём его по уровням DNS-иерархии (читаем справа налево):
-
-           Домен верхнего уровня (TLD)-.io`       
-        Домен второго уровня (SLD)-`github`          
-       Поддомен третьего уровня-`adya228` 
-
-
-
-     </body>
-<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Решение шифров Цезаря</title>
+  <title>Мой блог</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: #fdf6f9; /* Светло-розовый фон по умолчанию */
+      color: #5a2a4d;
       max-width: 800px;
-      margin: 40px auto;
+      margin: 20px auto;
       padding: 20px;
       line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
     }
-    h1 {
-      text-align: center;
-      color: #2c3e50;
+
+    /* Светлая тема */
+    body.light {
+      background-color: #ffffff;
+      color: #333333;
     }
-    h2 {
-      color: #3498db;
-      border-bottom: 1px solid #eee;
+
+    /* Тёмная тема */
+    body.dark {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    /* Новогодняя тема */
+    body.holiday {
+      background-color: #0d3b25;
+      color: #fffde7;
+    }
+
+    /* Розовая тема (по умолчанию) */
+    body.pink {
+      background-color: #fdf6f9;
+      color: #5a2a4d;
+    }
+
+    h1, h2 {
+      color: inherit;
+      border-bottom: 1px solid rgba(90, 42, 77, 0.2);
       padding-bottom: 8px;
     }
-    .task {
-      margin-bottom: 25px;
+
+    .dark h1, .dark h2 {
+      border-bottom-color: rgba(255,255,255,0.2);
     }
+
+    .holiday h1, .holiday h2 {
+      border-bottom-color: rgba(255,255,255,0.3);
+    }
+
     .answer {
-      background-color: #ecf0f1;
+      background-color: #f8e0ec;
       padding: 12px;
-      border-left: 4px solid #3498db;
+      border-left: 4px solid #e91e63;
       font-weight: bold;
       margin-top: 8px;
       border-radius: 0 4px 4px 0;
+      color: #5a2a4d;
     }
+
+    .light .answer {
+      background-color: #ecf0f1;
+      border-left-color: #3498db;
+      color: #333;
+    }
+
+    .dark .answer {
+      background-color: #2c2c2c;
+      border-left-color: #3498db;
+      color: #fff;
+    }
+
+    .holiday .answer {
+      background-color: #c62828;
+      color: #fff;
+    }
+
     footer {
       text-align: center;
       margin-top: 40px;
       color: #7f8c8d;
       font-size: 0.9em;
     }
+
+    .theme-buttons {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .theme-buttons button {
+      margin: 0 6px 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+      border: none;
+      border-radius: 20px;
+      background: #e91e63;
+      color: white;
+      font-weight: bold;
+      transition: opacity 0.2s;
+    }
+
+    .theme-buttons button:hover {
+      opacity: 0.9;
+    }
+
+    .light-btn { background: #3498db !important; }
+    .dark-btn { background: #2c3e50 !important; }
+    .holiday-btn { background: #c62828 !important; }
+    .pink-btn { background: #e91e63 !important; }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .email-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #e91e63;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    a {
+      color: #d81b60;
+      text-decoration: underline;
+    }
+
+    .dark a { color: #4fc3f7; }
+    .holiday a { color: #ffcc80; }
+    .light a { color: #2980b9; }
   </style>
 </head>
-<body>
-   <h2> 17 01, 2026</h2>
+<body class="pink">
+
+  <div class="theme-buttons">
+    <button class="pink-btn" onclick="setTheme('pink')">Розовая</button>
+    <button class="light-btn" onclick="setTheme('light')">Светлая</button>
+    <button class="dark-btn" onclick="setTheme('dark')">Тёмная</button>
+    <button class="holiday-btn" onclick="setTheme('holiday')">Новогодняя</button>
+  </div>
+
+  <h2>03.12, 2025</h2>
+  <blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
+  <img src="Icons/free-icon-snowman-2445060.png" alt="Новый год">
+  <p>Поздравление с Наступающим 2026 годом читайте <a href="pozdravlenie.odt">здесь</a>.</p>
+
+  <video controls width="400">
+    <source src="newTree.mp4" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+  </video>
+
+  <h2>26 ноября, 2025</h2>
+  <p>
+    Я сделала Новогодние кроссворды для сайта <a href="https://github.com/nastyz4/popka" title="Блог моего друга">Сайт моего друга</a>.
+  </p>
+
+  <h2>1 сентября, 2025</h2>
+  <blockquote>Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
+  <p>
+    Оставляю в прошлом скучную неинтересную локальную файловую систему ради Всемирной паутины.
+  </p>
+
+  <p>
+    <a href="https://www.flaticon.com/ru/free-icons/-" title="Новый год иконки от Milya Shaykh - Flaticon">Иконки Нового года</a>
+  </p>
+
+  <p>
+    Видео: <a href="https://www.pexels.com/video/christmas-tree-decorated-with-golden-ornaments-and-lights-8541692/" target="_blank">Новогодняя ёлка с золотыми украшениями</a>
+  </p>
+
+  <h2>15 декабря, 2025</h2>
+  <p>Здесь вы можете ознакомиться с документом:</p>
+  <a href="pudelinka.pdf" target="_blank">Открыть PDF</a>
+
+  <!-- Кнопка "Напишите мне" -->
+  <a href="mailto:adelina.anisimova.09@mail.ru" class="email-btn">Напишите мне</a>
+
+  <h2>12.01, 2026</h2>
+  <p><strong>Доменное имя</strong> — <code>adya228.github.io</code>.</p>
+  <p>Разберём его по уровням DNS-иерархии (читаем справа налево):</p>
+  <ul>
+    <li>Домен верхнего уровня (TLD): <code>.io</code></li>
+    <li>Домен второго уровня (SLD): <code>github</code></li>
+    <li>Поддомен третьего уровня: <code>adya228</code></li>
+  </ul>
+
+  <h2>17.01, 2026</h2>
   <h1>Решение задач по шифру Цезаря</h1>
 
   <div class="task">
@@ -130,11 +225,21 @@
     Решено с использованием 32-буквенного русского алфавита (без «Ё»).<br>
     Дата решения: 17 января 2026 г.
   </footer>
+
+  <script>
+    // Загрузка сохранённой темы при открытии
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('theme') || 'pink';
+      document.body.className = saved;
+    });
+
+    // Установка темы
+    function setTheme(theme) {
+      document.body.className = theme;
+      localStorage.setItem('theme', theme);
+    }
+  </script>
 </body>
 </html>
-</html>---
-
-
-
 
 
