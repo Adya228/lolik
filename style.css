@@ -19,3 +19,128 @@ blockquote.q {
 	font-style: italic;
 }
 p.quote { font-family: “Pudelinka”, cursive;}
+
+
+    /* Светлая тема */
+    body.light {
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+    /* Тёмная тема */
+    body.dark {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    /* Новогодняя тема */
+    body.holiday {
+      background-color: #0d3b25;
+      color: #fffde7;
+    }
+
+    /* Розовая тема (по умолчанию) */
+    body.pink {
+      background-color: #fdf6f9;
+      color: #5a2a4d;
+    }
+
+    h1, h2 {
+      color: inherit;
+      border-bottom: 1px solid rgba(90, 42, 77, 0.2);
+      padding-bottom: 8px;
+    }
+
+    .dark h1, .dark h2 {
+      border-bottom-color: rgba(255,255,255,0.2);
+    }
+
+    .holiday h1, .holiday h2 {
+      border-bottom-color: rgba(255,255,255,0.3);
+    }
+
+    .answer {
+      background-color: #f8e0ec;
+      padding: 12px;
+      border-left: 4px solid #e91e63;
+      font-weight: bold;
+      margin-top: 8px;
+      border-radius: 0 4px 4px 0;
+      color: #5a2a4d;
+    }
+
+    .light .answer {
+      background-color: #ecf0f1;
+      border-left-color: #3498db;
+      color: #333;
+    }
+
+    .dark .answer {
+      background-color: #2c2c2c;
+      border-left-color: #3498db;
+      color: #fff;
+    }
+
+    .holiday .answer {
+      background-color: #c62828;
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #7f8c8d;
+      font-size: 0.9em;
+    }
+
+    .theme-buttons {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .theme-buttons button {
+      margin: 0 6px 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+      border: none;
+      border-radius: 20px;
+      background: #e91e63;
+      color: white;
+      font-weight: bold;
+      transition: opacity 0.2s;
+    }
+
+    .theme-buttons button:hover {
+      opacity: 0.9;
+    }
+
+    .light-btn { background: #3498db !important; }
+    .dark-btn { background: #2c3e50 !important; }
+    .holiday-btn { background: #c62828 !important; }
+    .pink-btn { background: #e91e63 !important; }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .email-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #e91e63;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    a {
+      color: #d81b60;
+      text-decoration: underline;
+    }
+
+    .dark a { color: #4fc3f7; }
+    .holiday a { color: #ffcc80; }
+    .light a { color: #2980b9; }
+ 
