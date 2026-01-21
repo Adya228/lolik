@@ -9,15 +9,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-</body>
-</html>
-<body class="pink">
+  <style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff00cc, #00ccff, #00ff9d, #ffcc00, #ff3300);
+  background-size: 600% 600%;
+  animation: rainbowGlow 10s ease infinite;
+}
 
-  <div class="theme-buttons">
-    <button class="pink-btn" onclick="setTheme('pink')">Розовая</button>
-    <button class="light-btn" onclick="setTheme('light')">Светлая</button>
-    <button class="dark-btn" onclick="setTheme('dark')">Тёмная</button>
-    <button class="holiday-btn" onclick="setTheme('holiday')">Новогодняя</button>
+@keyframes rainbowGlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+</html>
   </div>
  
   <h2>1 сентября, 2025</h2>
