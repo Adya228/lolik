@@ -214,19 +214,25 @@
 
 
  <h2>25.04.2026</h2>
-  <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Загрузка файла</title>
-</head>
-<body>
-    <h2>Прикрепите файл</h2>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="Анисимова.таблица.ods">Выберите файл:</label><br><br>
-        <input type="Анисимова.таблица.ods" name="file" id="file" required><br><br>
-        <button type="submit">Загрузить</button>
-    </form>
-</body>
-</html>
+<form id="uploadForm">
+    <input type="file" Анисимова.таблица.ods="file" id="file" required>
+    <button type="submit">Загрузить</button>
+</form>
+<div id="result"></div>
 
+<script>
+document.getElementById('uploadForm').onsubmit = async function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    try {
+        const response = await fetch('/upload', {
+            method: 'POST',
+            body: formData
+        });
+        const result = await response.text();
+        document.getElementById('result').innerText = result;
+    } catch (err) {
+        document.getElementById('result').innerText = 'Ошибка при загрузке';
+    }
+};
+</script>
